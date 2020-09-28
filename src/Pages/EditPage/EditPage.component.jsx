@@ -20,6 +20,7 @@ class EditPage extends React.Component {
       week: [],
       toggleMealName: false,
       totalCalories: day1,
+      mealId: 0,
     };
   }
 
@@ -46,9 +47,13 @@ class EditPage extends React.Component {
         <HeaderDashboard />
         <div className="edit-page">
           <div className="edit-block">
-            <div className="upper">
-              <p>{this.props.name}</p>
-              <p>{this.state.totalCalories}</p>
+            <div className="upper-edit">
+              <p className="day-edit">{this.props.name}</p>
+              <p className="calories-edit">
+                Total Calories: {this.state.totalCalories}
+              </p>
+            </div>
+            <div className="middle-edit">
               <div className="add-meal">
                 {this.state.toggleInput ? (
                   <>
@@ -60,6 +65,8 @@ class EditPage extends React.Component {
                           MealName: e.target.value,
                         });
                       }}
+                      className="edit-input"
+                      autoComplete="off"
                     />
                     <input
                       id="calorie-amount"
@@ -69,6 +76,8 @@ class EditPage extends React.Component {
                           CalorieAmount: +e.target.value,
                         });
                       }}
+                      className="edit-input"
+                      autoComplete="off"
                     />
                     <button
                       onClick={() => {
@@ -94,12 +103,14 @@ class EditPage extends React.Component {
                           alert("Incomplete Fields");
                         }
                       }}
+                      className="edit-button"
                     >
                       Submit
                     </button>
                   </>
                 ) : (
-                  <p
+                  <button
+                    className="edit-button"
                     onClick={() => {
                       this.setState({
                         toggleInput: !this.state.toggleInput,
@@ -107,96 +118,112 @@ class EditPage extends React.Component {
                     }}
                   >
                     Add New Meal
-                  </p>
+                  </button>
                 )}
               </div>
             </div>
-            {day !== undefined
-              ? day.meals.map((el) => {
-                  return (
-                    <>
-                      {!this.state.toggleMealName ? (
-                        <>
-                          <p
-                            onClick={() => {
-                              this.setState({
-                                toggleMealName: !this.state.toggleMealName,
-                              });
-                            }}
-                            key={el.index}
-                          >
-                            {el.name}
-                          </p>
-                          <p key={el.index + 1000}>{el.calories}</p>
-                          <button
-                            onClick={() => {
-                              axios
-                                .delete(`/api/calories/${day.id}/${el.index}`)
-                                .then((res) => {
-                                  console.log(res.data);
-                                })
-                                .catch((err) => console.log(err));
-                            }}
-                          >
-                            x
-                          </button>
-                        </>
-                      ) : (
-                        <>
-                          <input
-                            id="meal-value-1"
-                            onChange={(e) => {
-                              this.setState({
-                                MealName: e.target.value,
-                              });
-                            }}
-                            placeholder="Meal Name"
-                          />
-                          <input
-                            id="calorie-amount-1"
-                            onChange={(e) => {
-                              this.setState({
-                                CalorieAmount: +e.target.value,
-                              });
-                            }}
-                            placeholder="Calories"
-                          />
-                          <button
-                            onClick={() => {
-                              if (
-                                this.state.CalorieAmount !== 0 &&
-                                this.state.MealName !== ""
-                              ) {
+            <div className="lower-edit">
+              {day !== undefined
+                ? day.meals.map((el) => {
+                    return (
+                      <>
+                        {!this.state.toggleMealName ? (
+                          <div className="item-list">
+                            <button
+                              className="edit-button-small"
+                              onClick={() => {
                                 axios
-                                  .put(`/api/calories/${day.id}/${el.index}`, {
-                                    name: this.state.MealName,
-                                    calories: this.state.CalorieAmount,
-                                  })
+                                  .delete(`/api/calories/${day.id}/${el.index}`)
                                   .then((res) => {
                                     console.log(res.data);
                                   })
                                   .catch((err) => console.log(err));
+                              }}
+                            >
+                              x
+                            </button>
+                            <p
+                              className="item"
+                              onClick={() => {
                                 this.setState({
                                   toggleMealName: !this.state.toggleMealName,
+                                  mealId: el.index,
                                 });
-                                document.getElementById("meal-value-1").value =
-                                  "";
-                                document.getElementById(
-                                  "calorie-amount-1"
-                                ).value = "";
-                              } else {
-                                alert("Incomplete Fields");
+                              }}
+                              key={el.index}
+                            >
+                              Food: {el.name}
+                            </p>
+                            <p className="item" key={el.index + 1000}>
+                              Calories: {el.calories}
+                            </p>
+                          </div>
+                        ) : null}
+                      </>
+                    );
+                  })
+                : "no meals"}
+              <div className="edit-meal">
+                {this.state.toggleMealName ? (
+                  <div className="meal-edit">
+                    <input
+                      className="edit-input"
+                      id="meal-value-1"
+                      onChange={(e) => {
+                        this.setState({
+                          MealName: e.target.value,
+                        });
+                      }}
+                      placeholder="Meal Name"
+                      autoComplete="off"
+                    />
+                    <input
+                      className="edit-input"
+                      id="calorie-amount-1"
+                      onChange={(e) => {
+                        this.setState({
+                          CalorieAmount: +e.target.value,
+                        });
+                      }}
+                      placeholder="Calories"
+                      autoComplete="off"
+                    />
+                    <button
+                      className="edit-button"
+                      onClick={() => {
+                        if (
+                          this.state.CalorieAmount !== 0 &&
+                          this.state.MealName !== ""
+                        ) {
+                          axios
+                            .put(
+                              `/api/calories/${day.id}/${this.state.mealId}`,
+                              {
+                                name: this.state.MealName,
+                                calories: this.state.CalorieAmount,
                               }
-                            }}
-                          >
-                            Submit
-                          </button>
-                        </>
-                      )}
-                    </>
-                  );
-                })
-              : "no meals"}
+                            )
+                            .then((res) => {
+                              console.log(res.data);
+                            })
+                            .catch((err) => console.log(err));
+                          this.setState({
+                            toggleMealName: !this.state.toggleMealName,
+                          });
+                          document.getElementById("meal-value-1").value = "";
+                          document.getElementById("calorie-amount-1").value =
+                            "";
+                        } else {
+                          alert("Incomplete Fields");
+                        }
+                      }}
+                    >
+                      Submit
+                    </button>
+                  </div>
+                ) : null}
+              </div>
+            </div>
           </div>
         </div>
       </>

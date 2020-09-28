@@ -17,7 +17,6 @@ class App extends React.Component {
       goal: "",
       intensity: "",
       workoutsRemaining: 0,
-      totalCalories: 0,
       calorieWeek: [],
       day: "",
     };
@@ -125,7 +124,7 @@ class App extends React.Component {
                 intensity={this.state.intensity}
                 goal={this.state.goal}
                 workoutsRemaining={this.state.workoutsRemaining}
-                totalCalories={this.state.totalCalories}
+                weeks={this.state.calorieWeek}
               />
             </Route>
             <Route exact path="/dashboard/calories">
@@ -143,11 +142,19 @@ class App extends React.Component {
               />
             </Route>
             <Route exact path="/dashboard/workouts">
-              <WorkoutPage />
+              <WorkoutPage
+                intensity={this.state.intensity}
+                goal={this.state.goal}
+              />
             </Route>
             <Route exact path="/dashboard/calories/edit">
-              <EditPage week={this.state.calorieWeek} name={this.state.day} />
+              <EditPage
+                week={this.state.calorieWeek}
+                name={this.state.day}
+                func={this.calories}
+              />
             </Route>
+            <Route exact path="/dashboard/workouts/exercises"></Route>
           </Switch>
         </Router>
       </>

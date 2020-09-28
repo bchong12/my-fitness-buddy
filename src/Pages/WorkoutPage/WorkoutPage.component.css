@@ -1,0 +1,56 @@
+.workout-page {
+  background-color: #79031d;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.workout-box {
+  background-color: #edb518;
+  height: 70vh;
+  width: 70vw;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 0 20px;
+}
+
+.day-box {
+  display: flex;
+  padding: 1px 20px;
+  border: 2px solid rgb(172, 19, 65);
+  width: 90%;
+  margin-left: 2%;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  background-color: rgb(136, 13, 50);
+  align-items: center;
+}
+
+.workout-button {
+  height: 30px;
+  width: 30px;
+  margin-right: 10px;
+  background-color: white;
+  border-radius: 5px;
+}
+
+.workout-button:hover {
+  background-color: rgb(189, 189, 189);
+  cursor: pointer;
+}
+
+.workout-number {
+  font-size: 16.5px;
+  font-weight: 700;
+  font-style: italic;
+  color: black;
+}
+
+.workout-title {
+  margin-left: 15px;
+  font-weight: 800;
+  font-style: italic;
+  font-size: 115%;
+}

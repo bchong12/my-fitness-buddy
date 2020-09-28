@@ -12,3 +12,89 @@
   width: 70vw;
   border-radius: 10px;
 }
+
+.upper-edit {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  align-items: center;
+}
+
+.day-edit {
+  font-family: "Lato";
+  font-weight: 800;
+  font-size: 30px;
+  font-style: italic;
+}
+
+.calories-edit {
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.add-meal {
+  padding: 0 20px;
+  margin-bottom: 30px;
+}
+
+.edit-input {
+  border-radius: 5px;
+  margin-right: 10px;
+  padding: 5px 10px;
+  font-family: "Lato";
+  font-style: italic;
+}
+
+.edit-button {
+  padding: 6px 11px;
+  background-color: #b8032a;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+.edit-button:hover {
+  cursor: pointer;
+  background-color: #db244c;
+}
+
+.edit-button:focus {
+  outline: none;
+}
+
+.item-list {
+  display: flex;
+  padding: 0px 20px;
+  margin-top: 10px;
+  align-items: center;
+}
+
+.item {
+  margin-left: 20px;
+  font-size: 18px;
+  font-style: italic;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
+.edit-button-small {
+  height: 30px;
+  width: 30px;
+  background-color: #b8032a;
+  color: white;
+  border: none;
+  border-radius: 10px;
+}
+
+.edit-button-small:hover {
+  background-color: #db244c;
+  cursor: pointer;
+}
+
+.edit-button-small:focus {
+  outline: none;
+}
+
+.edit-meal {
+  padding: 0px 20px;
+}

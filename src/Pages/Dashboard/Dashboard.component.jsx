@@ -5,8 +5,55 @@ import LetsGo from "../../Components/Lets-go-button/Lets-go-button.component";
 import Header from "../../Components/Header/Header.component";
 
 class Dashboard extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    const day1 =
+      this.props.weeks
+        .find((el) => "Sunday" === el.name)
+        .meals.reduce((total, value) => {
+          total = total + value.calories;
+          return total;
+        }, 0) +
+      this.props.weeks
+        .find((el) => "Monday" === el.name)
+        .meals.reduce((total, value) => {
+          total = total + value.calories;
+          return total;
+        }, 0) +
+      this.props.weeks
+        .find((el) => "Tuesday" === el.name)
+        .meals.reduce((total, value) => {
+          total = total + value.calories;
+          return total;
+        }, 0) +
+      this.props.weeks
+        .find((el) => "Wednesday" === el.name)
+        .meals.reduce((total, value) => {
+          total = total + value.calories;
+          return total;
+        }, 0) +
+      this.props.weeks
+        .find((el) => "Thursday" === el.name)
+        .meals.reduce((total, value) => {
+          total = total + value.calories;
+          return total;
+        }, 0) +
+      this.props.weeks
+        .find((el) => "Friday" === el.name)
+        .meals.reduce((total, value) => {
+          total = total + value.calories;
+          return total;
+        }, 0) +
+      this.props.weeks
+        .find((el) => "Saturday" === el.name)
+        .meals.reduce((total, value) => {
+          total = total + value.calories;
+          return total;
+        }, 0);
+
+    this.state = {
+      totalCalories: day1,
+    };
   }
   render() {
     return (
@@ -38,7 +85,7 @@ class Dashboard extends React.Component {
                     : "No Program Selected"}
                 </span>
                 <span className="font title" id="Calz">
-                  Calories consumed: {this.props.totalCalories}
+                  Calories consumed: {this.state.totalCalories}
                 </span>
               </div>
             </div>
