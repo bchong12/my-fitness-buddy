@@ -1,0 +1,14 @@
+.edit-page {
+  background-color: #79031d;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.edit-block {
+  background-color: #edb518;
+  height: 70vh;
+  width: 70vw;
+  border-radius: 10px;
+}

@@ -1,0 +1,64 @@
+.intensitypage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #79031d;
+  height: 90vh;
+  flex-direction: column;
+}
+
+.intensity-buttons {
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+.upper {
+  margin-bottom: 50px;
+}
+
+.middle {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.hypertext {
+  color: #e2e2e2;
+  font-style: italic;
+  font-weight: 900;
+  font-family: "Teko";
+  font-size: 80px;
+  margin-bottom: 0px;
+}
+
+.lower {
+  display: flex;
+  color: #c4c2c2;
+}
+
+.subtitle-box-intense {
+  height: 30vh;
+  width: 35vw;
+  margin-left: -15px;
+  margin-right: -25px;
+}
+
+.subtitle {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.lowest {
+  margin-top: 60px;
+}
+
+.font {
+  font-family: "Oswald";
+  margin-top: -10px;
+}
+
+.font.title {
+  font-size: 120%;
+  margin-bottom: 25px;
+  margin-top: 15px;
+}

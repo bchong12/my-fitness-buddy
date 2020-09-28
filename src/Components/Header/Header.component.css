@@ -1,0 +1,22 @@
+.logo {
+  color: #f5f7f7;
+  font-style: italic;
+}
+
+.logo-img {
+  height: 50px;
+  width: 50px;
+  margin-right: 10px;
+  background-color: black;
+}
+
+.header {
+  background-color: #000407;
+  font-family: Oswald;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

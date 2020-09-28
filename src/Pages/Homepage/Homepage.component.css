@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Teko:wght@700&display=swap");
+
+.background-img {
+  height: 90vh;
+  width: 100vw;
+  position: relative;
+  opacity: 0.6;
+  filter: brightness(35%);
+}
+
+.overlay {
+  position: absolute;
+  left: 0;
+  top: 11.2%;
+  height: 90vh;
+  width: 100%;
+  background-color: #79031d;
+}
+
+.challenge-text {
+  position: absolute;
+  font-size: 80px;
+  top: 25%;
+  left: 25.5%;
+  color: #e2e2e2;
+  font-style: italic;
+  font-weight: 900;
+  font-family: "Teko";
+}
+.challenge-text-sub {
+  position: absolute;
+  font-size: 30px;
+  top: 46.5%;
+  left: 36%;
+  font-style: italic;
+  color: #969494;
+}
+
+.lets-go-button {
+  position: absolute;
+  top: 63%;
+  right: 40.5%;
+}

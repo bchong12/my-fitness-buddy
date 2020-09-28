@@ -1,0 +1,32 @@
+.calorie-tracker {
+  background-color: #79031d;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.calorie-box {
+  height: 10vh;
+  width: 80vw;
+  background-color: white;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 20px;
+  border-radius: 5px;
+  background-color: #edb518;
+  color: black;
+  font-size: 20px;
+  font-style: italic;
+  font-weight: 800;
+}
+
+.calorie-box:hover {
+  cursor: pointer;
+  background-color: #ce9803;
+  color: whitesmoke;
+}
