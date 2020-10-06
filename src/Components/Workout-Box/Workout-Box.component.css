@@ -1,0 +1,15 @@
+.images {
+  height: 20vh;
+  width: 20vw;
+}
+
+.left-workoutbox {
+  display: flex;
+  flex-direction: column;
+}
+
+.Workout-Box {
+  display: flex;
+  justify-content: space-evenly;
+  border: 1px solid black;
+}

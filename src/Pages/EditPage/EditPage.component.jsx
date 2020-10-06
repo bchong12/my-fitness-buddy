@@ -99,6 +99,7 @@ class EditPage extends React.Component {
                           });
                           document.getElementById("meal-value").value = "";
                           document.getElementById("calorie-amount").value = "";
+                          this.props.getCalories();
                         } else {
                           alert("Incomplete Fields");
                         }
@@ -138,6 +139,7 @@ class EditPage extends React.Component {
                                     console.log(res.data);
                                   })
                                   .catch((err) => console.log(err));
+                                this.props.getCalories();
                               }}
                             >
                               x
@@ -207,6 +209,7 @@ class EditPage extends React.Component {
                               console.log(res.data);
                             })
                             .catch((err) => console.log(err));
+                          this.props.getCalories();
                           this.setState({
                             toggleMealName: !this.state.toggleMealName,
                           });

@@ -7,6 +7,7 @@ import Dashboard from "./Pages/Dashboard/Dashboard.component";
 import CalorieTracker from "./Pages/Calorie-tracker/Calorie-tracker.component";
 import WorkoutPage from "./Pages/WorkoutPage/WorkoutPage.component";
 import EditPage from "./Pages/EditPage/EditPage.component";
+import ExercisePage from "./Pages/Exercise-page/exercise-page.component";
 import axios from "axios";
 import "./App.css";
 
@@ -22,7 +23,7 @@ class App extends React.Component {
     };
   }
 
-  componentDidMount() {
+  getCalories = () => {
     axios
       .get("/api/calories")
       .then((res) => {
@@ -31,17 +32,10 @@ class App extends React.Component {
         });
       })
       .catch((err) => console.log(err));
-  }
+  };
 
-  componentDidUpdate() {
-    axios
-      .get("/api/calories")
-      .then((res) => {
-        this.setState({
-          calorieWeek: res.data.calories,
-        });
-      })
-      .catch((err) => console.log(err));
+  componentDidMount() {
+    this.getCalories();
   }
 
   onClick1 = () => {
@@ -139,6 +133,7 @@ class App extends React.Component {
                   onClick7: this.onClick7,
                 }}
                 week={this.state.calorieWeek}
+                getCalories={this.getCalories}
               />
             </Route>
             <Route exact path="/dashboard/workouts">
@@ -152,9 +147,16 @@ class App extends React.Component {
                 week={this.state.calorieWeek}
                 name={this.state.day}
                 func={this.calories}
+                getCalories={this.getCalories}
               />
             </Route>
-            <Route exact path="/dashboard/workouts/exercises"></Route>
+            <Route exact path="/dashboard/workouts/exercises">
+              <ExercisePage
+                intensity={this.state.intensity}
+                goal={this.state.goal}
+              />
+            </Route>
+            <Route exact path="/dashboard/workouts/exercises/:name"></Route>
           </Switch>
         </Router>
       </>

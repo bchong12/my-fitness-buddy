@@ -16,14 +16,14 @@ const workouts = [
     name: "chest",
     compoundLifts: [
       {
-        exercise: "flat bench press",
+        name: "flat bench press",
         sets: 5,
         reps: 8,
         example:
           "https://cdn2.coachmag.co.uk/sites/coachmag/files/styles/insert_main_wide_image/public/2016/07/1-1-bench-press.jpg?itok=bJYGPFGO",
       },
       {
-        exercise: "incline bench press",
+        name: "incline bench press",
         sets: 5,
         reps: 8,
         example:
@@ -32,28 +32,28 @@ const workouts = [
     ],
     isolatedLifts: [
       {
-        exercise: "push ups",
+        name: "push ups",
         sets: 4,
         reps: 10,
         example:
           "https://upl.stack.com/wp-content/uploads/2012/10/Flex_o001_2_-e1350409352620.jpg",
       },
       {
-        exercise: "Chest Flies with TRX",
+        name: "Chest Flies with TRX",
         sets: 4,
         reps: 10,
         example:
           "https://www.anytimefitness.com/wp-content/uploads/2020/06/trx-fly.jpg",
       },
       {
-        exercise: "Dumbbell Flies",
+        name: "Dumbbell Flies",
         sets: 4,
         reps: 10,
         example:
           "https://bodybuilding-wizard.com/wp-content/uploads/2014/05/flat-bench-dumbbell-flyes.jpg",
       },
       {
-        exercise: "Incline Chest Flies",
+        name: "Incline Chest Flies",
         sets: 4,
         reps: 10,
         example:
@@ -65,14 +65,14 @@ const workouts = [
     name: "back",
     compoundLifts: [
       {
-        exercise: "Deadlift",
+        name: "Deadlift",
         sets: 6,
         reps: 10,
         example:
           "https://bodybuilding-wizard.com/wp-content/uploads/2018/08/trap-bar-deadlift-benefits.jpg",
       },
       {
-        exercise: "Pull ups",
+        name: "Pull ups",
         sets: 5,
         reps: 10,
         example:
@@ -81,14 +81,14 @@ const workouts = [
     ],
     isolatedLifts: [
       {
-        exercise: "Barbell Row",
+        name: "Barbell Row",
         sets: 4,
         reps: 10,
         example:
           "https://cdn2.coachmag.co.uk/sites/coachmag/files/2016/07/3-2a-barbell-bent-over-row.jpg",
       },
       {
-        exercise: "Dumbell Row",
+        name: "Dumbell Row",
         sets: 4,
         reps: 10,
         example:

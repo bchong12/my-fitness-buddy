@@ -60,7 +60,7 @@ const IntensityPage = (props) => {
           <div className="subtitle-box-intense">
             <div className="subtitle">
               <span className="font title">The ADVANCED program:</span>
-              <p className="font">-Four Workouts a week</p>
+              <p className="font">-Six Workouts a week</p>
               <p className="font">
                 -SPLITS: Two Cycles of Back, Bicep & Chest, Tricep & Shoulder,
                 Leg
